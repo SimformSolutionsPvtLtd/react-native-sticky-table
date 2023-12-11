@@ -1,3 +1,5 @@
+![StickyTable - Simform](./assets/react-native-sticky-table.gif)
+
 # react-native-sticky-table
 
 [![react-native-sticky-table on npm](https://img.shields.io/npm/v/react-native-sticky-table.svg?style=flat)](https://www.npmjs.com/package/react-native-sticky-table) [![react-native-sticky-table downloads](https://img.shields.io/npm/dm/react-native-sticky-table)](https://www.npmtrends.com/react-native-sticky-table) [![react-native-sticky-table install size](https://packagephobia.com/badge?p=react-native-sticky-table)](https://packagephobia.com/result?p=react-native-sticky-table) [![Android](https://img.shields.io/badge/Platform-Android-green?logo=android)](https://www.android.com) [![iOS](https://img.shields.io/badge/Platform-iOS-green?logo=apple)](https://developer.apple.com/ios) [![MIT](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
@@ -14,19 +16,15 @@ Our user-friendly and highly customizable library ensures a seamless experience.
 
 ---
 
-| Sticky Table                             |
-| ---------------------------------------- |
-| ![alt Default](./assets/StickyTable.gif) |
+| Stock Info Sticky Table                                                                                                                                                  | App Info Sticky Table                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a href="https://github.com/SimformSolutionsPvtLtd/react-native-recipe-sample"><img width="202" height="400" alt="SimformSolutions" src="./assets/StickyTable.gif"> </a> | <a href="https://github.com/SimformSolutionsPvtLtd/react-native-recipe-sample"><img width="202" height="400" alt="SimformSolutions" src="./assets/StickyTableApp.gif"> </a> |
 
 ---
 
 ## Quick Access
 
-- [Installation](#installation)
-- [Usage and Examples](#usage)
-- [Properties](#properties)
-- [Example Code](#example)
-- [License](#license)
+[Installation](#installation) | [Usage and Examples](#usage) | [Properties](#properties) | [Example](#example) | [License](#license)
 
 ## Getting Started 🔧
 
@@ -211,7 +209,7 @@ const styles = StyleSheet.create({
 
 #### 🎬 Preview
 
-## ![Default](./assets/StickyTable.gif)
+## <a href="https://github.com/SimformSolutionsPvtLtd/react-native-sticky-table"><img width="202" height="400" alt="SimformSolutions" src="./assets/StickyTable.gif"> </a>
 
 ## Properties
 
