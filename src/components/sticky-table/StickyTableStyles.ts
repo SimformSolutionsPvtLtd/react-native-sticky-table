@@ -5,7 +5,7 @@ import {
   moderateScale,
   Colors,
 } from '../../theme';
-import type { WidthType } from './types';
+import type { WidthType } from './StickyTableTypes';
 import type { SharedValue } from 'react-native-reanimated';
 
 /**
@@ -24,16 +24,16 @@ export const setWidthStyle = (maxWidth: number) => {
 
 /**
  * @param shouldRemove - Whether or not to remove the flex property.
- * @param flaxValue - The flex value.
+ * @param flexValue - The flex value.
  * @returns - A StyleSheet object containing the flex property.
  */
-export const getLastNameStyle = (
+export const getRestSentenceStyle = (
   shouldRemove: boolean,
-  flaxValue: SharedValue<number>
+  flexValue: SharedValue<number>
 ) => {
   return {
     maxWidth: horizontalScale(80),
-    flex: shouldRemove ? flaxValue.value : 1,
+    flex: shouldRemove ? flexValue.value : 1,
   };
 };
 
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     shadowOpacity: moderateScale(0.1),
     shadowRadius: moderateScale(5),
   },
-  lastNameBackgroundColor: {
+  restSentenceBackgroundColor: {
     backgroundColor: Colors.cream,
   },
   screen: { flex: 1 },

@@ -1,7 +1,7 @@
 {
   "name": "react-native-sticky-table",
   "version": "1.0.0",
-  "description": "A React Native custom sticky table component",
+  "description": "React Native sticky table component to elevate the app's data presentation and visualization experience",
   "main": "lib/index",
   "types": "lib/index.d.ts",
   "contributors": [],

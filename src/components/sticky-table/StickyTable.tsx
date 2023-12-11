@@ -2,15 +2,15 @@ import React from 'react';
 import { ScrollView, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { AppConst } from '../../constants';
-import RenderItem from './RenderItem';
+import ListItem from './ListItem';
 import Title from './Title';
 import { useStickyTable } from './hooks';
-import styles from './styles';
+import styles from './StickyTableStyles';
 import type {
-  RenderItemProps,
+  ListItemProps,
   StickyTableHookType,
   StickyTableProps,
-} from './types';
+} from './StickyTableTypes';
 
 /**
  * This component is used to render the sticky table
@@ -36,7 +36,7 @@ const StickyTable = ({
     onScroll,
     animatedWidthStyle,
     translateFirstTextStyle,
-    flaxValue,
+    flexValue,
     setFirstWordWidths,
     firstWordWidths,
     translationX,
@@ -60,7 +60,7 @@ const StickyTable = ({
                   maxWidth,
                   minWidth,
                   translationX,
-                  flaxValue,
+                  flexValue,
                 }}
                 {...rowTitleProps}
               />
@@ -72,9 +72,9 @@ const StickyTable = ({
           renderItem={({
             item,
             index,
-          }: Pick<RenderItemProps, 'index' | 'item'>) => {
+          }: Pick<ListItemProps, 'index' | 'item'>) => {
             return (
-              <RenderItem
+              <ListItem
                 item={item}
                 index={index}
                 {...(item?.maxWidth && { defaultMaxWidth: item?.maxWidth })}

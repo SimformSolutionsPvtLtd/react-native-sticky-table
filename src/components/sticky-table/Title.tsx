@@ -7,8 +7,11 @@ import {
 } from 'react-native';
 import Animated from 'react-native-reanimated';
 import useTitle from './hooks/useTitle';
-import styles, { getLastNameStyle, setWidthStyle } from './styles';
-import type { TitleHookType, TitleProps } from './types';
+import styles, {
+  getRestSentenceStyle,
+  setWidthStyle,
+} from './StickyTableStyles';
+import type { TitleHookType, TitleProps } from './StickyTableTypes';
 
 /**
  * This component is used to render the title of the table
@@ -25,7 +28,7 @@ const Title = ({
   maxWidth = 132,
   minWidth = 104,
   translationX,
-  flaxValue,
+  flexValue,
   removeProperty = '',
   titleBackgroundColor,
   firstIndexContainerStyle,
@@ -35,16 +38,16 @@ const Title = ({
   separatorViewStyle,
   firstWordContainerStyle,
   firstWordTextProps,
-  lastWordContainerStyle,
-  lastWordTextProps,
+  restSentenceContainerStyle,
+  restSentenceTextProps,
   firstWordContainerProps,
-  lastWordContainerProps,
+  restSentenceContainerProps,
   rowTitleSeparatorViewStyle,
   rowTitleSeparatorViewProps,
 }: TitleProps) => {
   const {
-    firstName,
-    lastName,
+    firstWord,
+    restSentence,
     shouldRemove,
     translateLastTextStyle,
     onTextLayout,
@@ -56,7 +59,7 @@ const Title = ({
     firstWordWidths,
     maxWidth,
     minWidth,
-    flaxValue,
+    flexValue,
     setFirstWordWidths,
   });
 
@@ -87,25 +90,25 @@ const Title = ({
             onTextLayout={(e: NativeSyntheticEvent<TextLayoutEventData>) => {
               onTextLayout(e);
             }}>
-            {`${firstName} `}
+            {`${firstWord} `}
           </Animated.Text>
         </Animated.View>
         <Animated.View
           style={[
             shouldRemove ? translateLastTextStyle : {},
-            index !== 0 && styles.lastNameBackgroundColor,
-            getLastNameStyle(shouldRemove, flaxValue),
+            index !== 0 && styles.restSentenceBackgroundColor,
+            getRestSentenceStyle(shouldRemove, flexValue),
             !isEmpty(titleBackgroundColor) && {
               backgroundColor: titleBackgroundColor,
             },
-            lastWordContainerStyle,
+            restSentenceContainerStyle,
           ]}
-          {...lastWordContainerProps}>
+          {...restSentenceContainerProps}>
           <Animated.Text
             numberOfLines={1}
             ellipsizeMode="tail"
-            {...lastWordTextProps}>
-            {lastName}
+            {...restSentenceTextProps}>
+            {restSentence}
           </Animated.Text>
         </Animated.View>
         {index !== 0 && (

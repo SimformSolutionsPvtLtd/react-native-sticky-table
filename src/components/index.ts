@@ -1,1 +1,1 @@
-export * from './StickyTable';
+export * from './sticky-table';

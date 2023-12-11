@@ -6,7 +6,7 @@ import {
   withTiming,
   type SharedValue,
 } from 'react-native-reanimated';
-import type { TitleHookType, TitleProps } from '../types';
+import type { TitleHookType, TitleProps } from '../StickyTableTypes';
 
 export default function useTitle({
   item,
@@ -16,7 +16,7 @@ export default function useTitle({
   firstWordWidths,
   maxWidth,
   minWidth,
-  flaxValue,
+  flexValue,
   setFirstWordWidths,
 }: Pick<
   TitleProps,
@@ -27,16 +27,16 @@ export default function useTitle({
   | 'firstWordWidths'
   | 'maxWidth'
   | 'minWidth'
-  | 'flaxValue'
+  | 'flexValue'
   | 'setFirstWordWidths'
 >): TitleHookType {
   const name: Array<string> = item?.split(' ') ?? [];
-  const firstName: string = name?.[0] ?? '';
-  const lastName: string =
+  const firstWord: string = name?.[0] ?? '';
+  const restSentence: string =
     name?.length > 1 ? item?.substring(item?.indexOf(' ') + 1) ?? '' : '';
   const shouldRemove: boolean =
-    firstName?.toLowerCase()?.includes(removeProperty?.toLowerCase()) &&
-    firstName?.length === removeProperty?.length;
+    firstWord?.toLowerCase()?.includes(removeProperty?.toLowerCase()) &&
+    firstWord?.length === removeProperty?.length;
 
   /**
    * This worklet is used to translate the last word of the title
@@ -84,9 +84,9 @@ export default function useTitle({
       firstWordWidths,
       maxWidth,
       minWidth,
-      flaxValue
+      flexValue
     );
-  }, [translationX, index, firstWordWidths, maxWidth, minWidth, flaxValue]);
+  }, [translationX, index, firstWordWidths, maxWidth, minWidth, flexValue]);
 
   /**
    * Calculate the width of the first word width and set it to the firstWordWidths array
@@ -101,8 +101,8 @@ export default function useTitle({
   );
 
   return {
-    firstName,
-    lastName,
+    firstWord,
+    restSentence,
     shouldRemove,
     translateLastTextStyle,
     onTextLayout,

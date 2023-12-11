@@ -30,12 +30,12 @@ export interface WidthType {
 }
 
 /**
- * @typedef {object} RenderItemProps
+ * @typedef {object} ListItemProps
  * @property {TableData} item - data of the column
  * @property {number} index - index of the column
  * @property {number} defaultMaxWidth - default max width of the column
- * @property {StyleProp<ViewStyle>} renderItemContainerStyle - style of the column container
- * @property {ViewProps} renderItemContainerProps - props of the column container
+ * @property {StyleProp<ViewStyle>} listItemContainerStyle - style of the column container
+ * @property {ViewProps} listItemContainerProps - props of the column container
  * @property {StyleProp<ViewStyle>} separatorViewStyle - style of the separator
  * @property {ViewProps} separatorViewProps - props of the separator
  * @property {StyleProp<ViewStyle>} columnTitleStyle - style of the column title
@@ -45,12 +45,12 @@ export interface WidthType {
  * @property {StyleProp<TextStyle>} columnItemTextStyle - style of the column item text
  * @property {TextProps} columnItemTextProps - props of the column item text
  */
-export interface RenderItemProps {
+export interface ListItemProps {
   item: TableData;
   index: number;
   defaultMaxWidth?: number;
-  renderItemContainerStyle?: StyleProp<ViewStyle>;
-  renderItemContainerProps?: ViewProps;
+  listItemContainerStyle?: StyleProp<ViewStyle>;
+  listItemContainerProps?: ViewProps;
   separatorViewStyle?: StyleProp<ViewStyle>;
   separatorViewProps?: ViewProps;
   columnTitleStyle?: StyleProp<ViewStyle>;
@@ -92,7 +92,7 @@ export interface StickyTableData {
  * @property {StyleProp<ViewStyle>} containerStyle - style of the container
  * @property {ViewProps} containerProps - props of the container
  * @property {FlatListProps<TableData>} flatListProps - props of the flat list
- * @property {RenderItemProps} tableItemProps - props of the table item
+ * @property {ListItemProps} tableItemProps - props of the table item
  */
 export interface StickyTableProps {
   data: StickyTableData;
@@ -109,8 +109,8 @@ export interface StickyTableProps {
     | 'separatorViewStyle'
     | 'firstWordContainerStyle'
     | 'firstWordTextProps'
-    | 'lastWordContainerStyle'
-    | 'lastWordTextProps'
+    | 'restSentenceContainerStyle'
+    | 'restSentenceTextProps'
     | 'removeProperty'
     | 'rowTitleSeparatorViewStyle'
     | 'rowTitleSeparatorViewProps'
@@ -120,9 +120,9 @@ export interface StickyTableProps {
   containerProps?: ViewProps;
   flatListProps?: FlatListProps<TableData>;
   tableItemProps?: Pick<
-    RenderItemProps,
-    | 'renderItemContainerStyle'
-    | 'renderItemContainerProps'
+    ListItemProps,
+    | 'listItemContainerStyle'
+    | 'listItemContainerProps'
     | 'separatorViewStyle'
     | 'separatorViewProps'
     | 'columnTitleStyle'
@@ -145,7 +145,7 @@ export interface StickyTableProps {
  * @property {number} maxWidth - max width of the title
  * @property {number} minWidth - min width of the title
  * @property {SharedValue<number>} translationX - translation x of the title
- * @property {SharedValue<number>} flaxValue - flex value of the title
+ * @property {SharedValue<number>} flexValue - flex value of the title
  * @property {string} removeProperty - property to remove from the data
  * @property {string} titleBackgroundColor - background color of the title
  * @property {AnimatedStyleProp<ViewStyle>} firstIndexContainerStyle - style of the first index container
@@ -155,10 +155,10 @@ export interface StickyTableProps {
  * @property {StyleProp<ViewStyle>} separatorViewStyle - style of the separator
  * @property {AnimatedStyleProp<ViewStyle>} firstWordContainerStyle - style of the first word container
  * @property {AnimateProps<TextProps>} firstWordTextProps - props of the first word text
- * @property {AnimatedStyleProp<ViewStyle>} lastWordContainerStyle - style of the last word container
- * @property {AnimateProps<TextProps>} lastWordTextProps - props of the last word text
+ * @property {AnimatedStyleProp<ViewStyle>} restSentenceContainerStyle - style of the rest sentence container
+ * @property {AnimateProps<TextProps>} restSentenceTextProps - props of the rest sentence text
  * @property {AnimateProps<ViewProps>} firstWordContainerProps - props of the first word container
- * @property {AnimateProps<ViewProps>} lastWordContainerProps - props of the last word container
+ * @property {AnimateProps<ViewProps>} restSentenceContainerProps - props of the rest sentence container
  * @property {StyleProp<ViewStyle>} rowTitleSeparatorViewStyle - style of the row title separator
  * @property {ViewProps} rowTitleSeparatorViewProps - props of the row title separator
  */
@@ -172,7 +172,7 @@ export interface TitleProps {
   maxWidth: number;
   minWidth: number;
   translationX: SharedValue<number>;
-  flaxValue: SharedValue<number>;
+  flexValue: SharedValue<number>;
   removeProperty?: string;
   titleBackgroundColor?: string;
   firstIndexContainerStyle?: AnimatedStyleProp<ViewStyle>;
@@ -182,10 +182,10 @@ export interface TitleProps {
   separatorViewStyle?: StyleProp<ViewStyle>;
   firstWordContainerStyle?: AnimatedStyleProp<ViewStyle>;
   firstWordTextProps?: AnimateProps<TextProps>;
-  lastWordContainerStyle?: AnimatedStyleProp<ViewStyle>;
-  lastWordTextProps?: AnimateProps<TextProps>;
+  restSentenceContainerStyle?: AnimatedStyleProp<ViewStyle>;
+  restSentenceTextProps?: AnimateProps<TextProps>;
   firstWordContainerProps?: AnimateProps<ViewProps>;
-  lastWordContainerProps?: AnimateProps<ViewProps>;
+  restSentenceContainerProps?: AnimateProps<ViewProps>;
   rowTitleSeparatorViewStyle?: StyleProp<ViewStyle>;
   rowTitleSeparatorViewProps?: ViewProps;
 }
@@ -196,7 +196,7 @@ export interface TitleProps {
  * @property {(event: NativeSyntheticEvent<NativeScrollEvent>) => void} onScroll - on scroll event
  * @property {AnimatedStyleProp<ViewStyle>} animatedWidthStyle - style of the title
  * @property {AnimatedStyleProp<ViewStyle>} translateFirstTextStyle - style of the first word of the title
- * @property {SharedValue<number>} flaxValue - flex value of the title
+ * @property {SharedValue<number>} flexValue - flex value of the title
  * @property {React.Dispatch<React.SetStateAction<number[]>>} setFirstWordWidths - set first word widths
  * @property {number[]} firstWordWidths - first word widths
  * @property {SharedValue<number>} translationX - translation x of the title
@@ -206,7 +206,7 @@ export interface StickyTableHookType {
   onScroll: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
   animatedWidthStyle: AnimatedStyleProp<ViewStyle>;
   translateFirstTextStyle: AnimatedStyleProp<ViewStyle>;
-  flaxValue: SharedValue<number>;
+  flexValue: SharedValue<number>;
   setFirstWordWidths: React.Dispatch<React.SetStateAction<number[]>>;
   firstWordWidths: number[];
   translationX: SharedValue<number>;
@@ -214,15 +214,15 @@ export interface StickyTableHookType {
 
 /**
  * @typedef {object} TitleHookType
- * @property {string} firstName - first name of the title
- * @property {string} lastName - last name of the title
+ * @property {string} firstWord - first name of the title
+ * @property {string} restSentence - last name of the title
  * @property {boolean} shouldRemove - should remove the title
  * @property {AnimatedStyleProp<TextStyle>} translateLastTextStyle - style of the last word of the title
  * @property {(event: NativeSyntheticEvent<TextLayoutEventData>) => void} onTextLayout - on text layout event
  */
 export interface TitleHookType {
-  firstName: string;
-  lastName: string;
+  firstWord: string;
+  restSentence: string;
   shouldRemove: boolean;
   translateLastTextStyle: AnimatedStyleProp<TextStyle>;
   onTextLayout: (event: NativeSyntheticEvent<TextLayoutEventData>) => void;
