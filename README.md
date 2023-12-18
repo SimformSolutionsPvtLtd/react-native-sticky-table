@@ -6,7 +6,7 @@
 
 ---
 
-Sticky Table library is built purely in JavaScript and React Native Reanimated represented to make better your sticky table experience by enabling horizontal and vertical scrolling.
+The Sticky Table library is built purely in JavaScript and uses React Native Reanimated to elevate the sticky table experience by enabling horizontal and vertical scrolling.
 
 Our user-friendly and highly customizable library ensures a seamless experience. Whether you're an Android or iOS user, our library is compatible with both platforms, guaranteeing optimal performance.
 
@@ -229,21 +229,22 @@ const styles = StyleSheet.create({
 
 ##### RowTitleProps
 
-| Props                      | Default |              Type              | Description                        |
-| -------------------------- | :-----: | :----------------------------: | ---------------------------------- |
-| firstIndexContainerStyle   |    -    | `AnimatedStyleProp<ViewStyle>` | style of the first index container |
-| otherIndexContainerStyle   |    -    | `AnimatedStyleProp<ViewStyle>` | style of the container             |
-| containerStyle             |    -    | `AnimatedStyleProp<ViewStyle>` | style of the other index container |
-| containerProps             |    -    |   `AnimateProps<ViewProps>`    | props of the container             |
-| titleBackgroundColor       |    -    |             string             | background color of the title      |
-| separatorViewStyle         |    -    |     `StyleProp<ViewStyle>`     | style of the separator             |
-| firstWordContainerStyle    |    -    | `AnimatedStyleProp<ViewStyle>` | style of the first word container  |
-| firstWordTextProps         |    -    |   `AnimateProps<TextProps>`    | props of the first word text       |
-| lastWordContainerStyle     |    -    | `AnimatedStyleProp<ViewStyle>` | style of the last word container   |
-| lastWordTextProps          |    -    |   `AnimateProps<TextProps>`    | props of the last word text        |
-| removeProperty             |    -    |             string             | property to remove from the data   |
-| rowTitleSeparatorViewStyle |    -    |     `StyleProp<ViewStyle>`     | style of the row title separator   |
-| rowTitleSeparatorViewProps |    -    |           ViewProps            | props of the row title separator   |
+| Props                      | Default |              Type              | Description                          |
+| -------------------------- | :-----: | :----------------------------: | ------------------------------------ |
+| firstIndexContainerStyle   |    -    | `AnimatedStyleProp<ViewStyle>` | style of the first index container   |
+| otherIndexContainerStyle   |    -    | `AnimatedStyleProp<ViewStyle>` | style of the other index container   |
+| containerStyle             |    -    | `AnimatedStyleProp<ViewStyle>` | style of the container               |
+| containerProps             |    -    |   `AnimateProps<ViewProps>`    | props of the container               |
+| titleBackgroundColor       |    -    |             string             | background color of the title        |
+| separatorViewStyle         |    -    |     `StyleProp<ViewStyle>`     | style of the separator               |
+| firstWordContainerStyle    |    -    | `AnimatedStyleProp<ViewStyle>` | style of the first word container    |
+| firstWordTextProps         |    -    |   `AnimateProps<TextProps>`    | props of the first word text         |
+| restSentenceContainerStyle |    -    | `AnimatedStyleProp<ViewStyle>` | style of the rest sentence container |
+| restSentenceTextProps      |    -    |   `AnimateProps<TextProps>`    | props of the rest sentence text      |
+| restSentenceContainerProps |    -    |   `AnimateProps<ViewProps>`    | props of the rest sentence container |
+| removeProperty             |    -    |             string             | property to remove from the data     |
+| rowTitleSeparatorViewStyle |    -    |     `StyleProp<ViewStyle>`     | style of the row title separator     |
+| rowTitleSeparatorViewProps |    -    |           ViewProps            | props of the row title separator     |
 
 ---
 
@@ -251,8 +252,8 @@ const styles = StyleSheet.create({
 
 | Props                    | Default |          Type          | Description                        |
 | ------------------------ | :-----: | :--------------------: | ---------------------------------- |
-| renderItemContainerStyle |    -    | `StyleProp<ViewStyle>` | style of the column container      |
-| renderItemContainerProps |    -    |       ViewProps        | props of the column container      |
+| listItemContainerStyle   |    -    | `StyleProp<ViewStyle>` | style of the column container      |
+| listItemContainerProps   |    -    |       ViewProps        | props of the column container      |
 | separatorViewStyle       |    -    | `StyleProp<ViewStyle>` | style of the separator             |
 | separatorViewProps       |    -    |       ViewProps        | props of the separator             |
 | columnTitleStyle         |    -    | `StyleProp<ViewStyle>` | style of the column title          |

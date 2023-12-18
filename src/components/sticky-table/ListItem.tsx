@@ -7,20 +7,20 @@ import {
   type TextLayoutEventData,
 } from 'react-native';
 import { AppConst } from '../../constants';
-import styles, { getDynamicWidth, getWidth } from './styles';
-import type { RenderItemProps, WidthType } from './types';
+import styles, { getDynamicWidth, getWidth } from './StickyTableStyles';
+import type { ListItemProps, WidthType } from './StickyTableTypes';
 
 /**
  * This component is used to render the item of the table
- * @param {RenderItemProps} props
- * @returns {React.FC<RenderItemProps>}
+ * @param {ListItemProps} props
+ * @returns {React.FC<ListItemProps>}
  */
-const RenderItem = ({
+const ListItem = ({
   item,
   index,
   defaultMaxWidth,
-  renderItemContainerStyle,
-  renderItemContainerProps,
+  listItemContainerStyle,
+  listItemContainerProps,
   separatorViewStyle,
   separatorViewProps,
   columnTitleStyle,
@@ -29,7 +29,7 @@ const RenderItem = ({
   columnItemContainerProps,
   columnItemTextStyle,
   columnItemTextProps,
-}: RenderItemProps) => {
+}: ListItemProps) => {
   const [maxWidths, setMaxWidths] = useState<Array<WidthType>>([]);
 
   /**
@@ -54,8 +54,8 @@ const RenderItem = ({
               {
                 width:
                   e.nativeEvent.lines[0].width + AppConst.paddingHorizontal, // 32 is the padding of the text which is 16 on each side
-                index: index,
-                innerIndex: innerIndex,
+                index,
+                innerIndex,
               },
             ].map(widths => [widths.innerIndex, widths])
           ).values()
@@ -70,9 +70,9 @@ const RenderItem = ({
       style={[
         getDynamicWidth(maxWidths, width),
         !isNil(defaultMaxWidth) && getWidth(defaultMaxWidth),
-        renderItemContainerStyle,
+        listItemContainerStyle,
       ]}
-      {...renderItemContainerProps}>
+      {...listItemContainerProps}>
       {item ? (
         item?.data?.map((innerItem: string, innerIndex: number) => {
           return (
@@ -119,4 +119,4 @@ const RenderItem = ({
   );
 };
 
-export default memo(RenderItem);
+export default memo(ListItem);

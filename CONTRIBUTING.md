@@ -30,6 +30,16 @@ and an optional scope can be a component
 docs: update contributing guide
 ```
 
+## Format
+
 ```
-fix(TicketId/Component): layout flicker issue
+fix(TicketId/Component): issue description
+feat(TicketId/Component): request for feature description
+```
+
+## Example
+
+```
+fix(StickyTable): Facing row title width animation issue
+feat(StickyTable): Row getting sticky while scrolling vertically
 ```

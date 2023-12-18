@@ -14,7 +14,7 @@ import type {
   StickyTableHookType,
   StickyTableProps,
   TableData,
-} from '../types';
+} from '../StickyTableTypes';
 
 export default function useStickyTable({
   maxWidth = AppConst.maxWidth,
@@ -23,7 +23,7 @@ export default function useStickyTable({
   const flatListRef = useRef<Animated.FlatList<TableData>>(null);
   const [scrollOffsetX, setScrollOffsetX] = useState<number>(0);
   const translationX = useSharedValue<number>(0);
-  const flaxValue = useSharedValue<number>(1);
+  const flexValue = useSharedValue<number>(1);
   const [firstWordWidths, setFirstWordWidths] = useState<number[]>([]);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function useStickyTable({
   const onScroll = useAnimatedScrollHandler(
     {
       onScroll: event => {
-        flaxValue.value = 0;
+        flexValue.value = 0;
         translationX.value = event.contentOffset.x;
       },
       onEndDrag: event => {
@@ -95,16 +95,16 @@ export default function useStickyTable({
           runOnJS(setScrollOffsetX)(event.contentOffset.x);
         }
         if (event.contentOffset.x <= AppConst.minOffsetThreshold) {
-          flaxValue.value = 1;
+          flexValue.value = 1;
         } else {
-          flaxValue.value = 0;
+          flexValue.value = 0;
         }
       },
       onMomentumEnd: event => {
         if (event.contentOffset.x <= AppConst.minOffsetThreshold) {
-          flaxValue.value = 1;
+          flexValue.value = 1;
         } else {
-          flaxValue.value = 0;
+          flexValue.value = 0;
         }
       },
     },
@@ -116,7 +116,7 @@ export default function useStickyTable({
     onScroll,
     animatedWidthStyle,
     translateFirstTextStyle,
-    flaxValue,
+    flexValue,
     setFirstWordWidths,
     firstWordWidths,
     translationX,
