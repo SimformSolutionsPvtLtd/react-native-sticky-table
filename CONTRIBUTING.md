@@ -7,6 +7,7 @@ We welcome code changes that improve this library or fix a problem, and please m
 Commit messages should be formatted as:
 
 ```
+
 <type>[optional scope]: <description>
 
 [optional body]
@@ -33,13 +34,6 @@ docs: update contributing guide
 ## Format
 
 ```
-fix(TicketId/Component): issue description
-feat(TicketId/Component): request for feature description
-```
-
-## Example
-
-```
-fix(StickyTable): Facing row title width animation issue
-feat(StickyTable): Row getting sticky while scrolling vertically
+fix(TicketId/Component): Issue description
+feat(TicketId/Component): Feature description
 ```
